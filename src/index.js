@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { BrowserRouter as Router } from 'react-router-dom';
+
 /* Fontawesome icons */
 import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
 
@@ -13,9 +15,9 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <Router>
     <App />
-  </React.StrictMode>
+  </Router>
 );
 
 reportWebVitals();

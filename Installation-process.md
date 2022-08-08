@@ -27,3 +27,16 @@ After creating the project with: npx create-react-app <project name>
 		> npm install axios
 	react-router-dom 
 		> npm install react-router-dom
+		
+		
+PROJECT STRUCTURE:
+
+components: 
+	- navbar
+	- contact-list
+	- view-contact
+	- edit-contact
+	- add-contact
+	
+services: 
+	- ContactService
