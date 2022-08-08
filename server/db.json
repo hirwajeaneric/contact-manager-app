@@ -1,0 +1,70 @@
+{
+    "contacts" : [
+        {
+            "id" : "AA@#$S123",
+            "name" : "Hirwa J Eric",
+            "photo" : "https://cdn1.iconfinder.com/data/icons/bokbokstars-121-classic-stock-icons-1/512/person-man.png",
+            "mobile" : "0789534231",
+            "email" : "hirwa@gmail.com",
+            "title" : "Software Engineer",
+            "company" : "DESIGN 250",
+            "group" : "1"
+         },
+         {
+            "id" : "DTvs#S123",
+            "name" : "Minerve Hirwa",
+            "photo" : "https://toppng.com/uploads/preview/female-user-icon-11549837859owkm4qddjy.png",
+            "mobile" : "0789534231",
+            "email" : "minerve@gmail.com",
+            "title" : "Freelancer",
+            "company" : "DESIGN 250",
+            "group" : "2"
+         },
+         {
+            "id" : "DTvs#ftG33",
+            "name" : "Muhire Bruce",
+            "photo" : "https://www.pngitem.com/pimgs/m/41-415019_profile-man-male-free-picture-male-avatar-clipart.png",
+            "mobile" : "0789534231",
+            "email" : "muhire@gmail.com",
+            "title" : "CEO",
+            "company" : "M Group",
+            "group" : "3"
+         },
+         {
+            "id" : "GHvs#ftG33",
+            "name" : "John Doe",
+            "photo" : "https://i.pinimg.com/736x/89/90/48/899048ab0cc455154006fdb9676964b3.jpg",
+            "mobile" : "0789534231",
+            "email" : "johnDoe@gmail.com",
+            "title" : "Developer",
+            "company" : "M Group",
+            "group" : "2"
+         }
+    ],
+    "groups" : [
+        {
+            "id" : "1",
+            "name" : "Colleague"
+        },
+        {
+            "id" : "2",
+            "name" : "Friend"
+        },
+        {
+            "id" : "3",
+            "name" : "Family"
+        },
+        {
+            "id" : "4",
+            "name" : "Service"
+        },
+        {
+            "id" : "5",
+            "name" : "Community"
+        },
+        {
+            "id" : "6",
+            "name" : "Social"
+        }
+    ]
+}
