@@ -40,3 +40,22 @@ components:
 	
 services: 
 	- ContactService
+	
+Created a (server) folder and initialized package.json file:
+To do that:
+	Inside the server folder:
+		> npm init --yes
+	
+	And then I also installed JSON-SERVER:
+		> npm install json-server
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
