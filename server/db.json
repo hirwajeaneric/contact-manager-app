@@ -2,13 +2,14 @@
   "contacts": [
     {
       "id": "AAse5S123",
-      "name": "Hirwa J Eric",
+      "name": "Hirwa Jean Eric",
       "photo": "https://cdn1.iconfinder.com/data/icons/bokbokstars-121-classic-stock-icons-1/512/person-man.png",
       "mobile": "0789534231",
       "email": "hirwa@gmail.com",
       "title": "Software Engineer",
       "company": "DESIGN 250",
-      "group": "1"
+      "group": "1",
+      "groupId": "4"
     },
     {
       "id": "DTvstS123",
@@ -18,27 +19,18 @@
       "email": "minerve@gmail.com",
       "title": "Freelancer",
       "company": "DESIGN 250",
-      "group": "2"
+      "group": "2",
+      "groupId": "2"
     },
     {
-      "id": "DTvs6ftG33",
-      "name": "Muhire Bruce",
-      "photo": "https://www.pngitem.com/pimgs/m/41-415019_profile-man-male-free-picture-male-avatar-clipart.png",
-      "mobile": "0789534231",
-      "email": "muhire@gmail.com",
-      "title": "CEO",
-      "company": "M Group",
-      "group": "3"
-    },
-    {
-      "id": "GHvs8ftG33",
-      "name": "John Doe",
-      "photo": "https://i.pinimg.com/736x/89/90/48/899048ab0cc455154006fdb9676964b3.jpg",
-      "mobile": "0789534231",
-      "email": "johnDoe@gmail.com",
-      "title": "Developer",
-      "company": "M Group",
-      "group": "2"
+      "name": "Jane Doe",
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgF2suM5kFwk9AdFjesEr8EP1qcyUvah8G7w&usqp=CAU",
+      "mobile": "0234343947",
+      "email": "janedoe@gmail.com",
+      "company": "SFSF",
+      "title": "SEO",
+      "groupId": "3",
+      "id": "LGP-wLF"
     }
   ],
   "groups": [
