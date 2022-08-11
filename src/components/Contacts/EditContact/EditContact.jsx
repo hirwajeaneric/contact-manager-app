@@ -1,9 +1,78 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
+import { ContactService } from '../../../services/ContactService';
+import Spinner from '../../Spinner/Spinner';
 
 const EditContact = () => {
+
+  let navigate = useNavigate();
+  
+  let {contactId} = useParams();
+
+  let [state, setState] = useState({
+    loading: false,
+    contact: {
+      name: '',
+      photo: '',
+      mobile: '',
+      email: '',
+      company: '',
+      title: '',
+      groupId: ''
+    },
+    groups: [],
+    errorMessage: ''
+  });
+
+  useEffect(async ()=>{
+    try {
+      setState({...state, loading: true});
+      let response = await ContactService.getContact(contactId);
+      let groupResponse = await ContactService.getGroups();
+      setState({
+        ...state,
+        loading: false,
+        contact: response.data,
+        groups: groupResponse.data
+      })
+    } catch (error) {
+      setState({
+        ...state, 
+        loading: false,
+        errorMessage: error.message
+      })
+    }
+  },[]);
+
+  let updateInput = (event)=> {
+    setState({
+      ...state,
+      contact: {
+        ...state.contact,
+        [event.target.name] : event.target.value
+      }
+    });
+  }
+
+  let submitForm = async (event) => {
+    event.preventDefault();
+    try {
+      let response = await ContactService.updateContact(state.contact, contactId);
+      if(response) {
+        navigate('/contacts/list', {replace: true});
+      }
+    } catch (error) {
+      setState({...state, errorMessage: error.message});
+      navigate(`/contacts/edit/${contactId}`, {replace: false})
+    }
+  }
+
+  let {loading, contact, groups, errorMessage} = state;
+
   return (
-<React.Fragment>
+    <React.Fragment>
+      {
+        loading ? <Spinner/> : <React.Fragment>
         <section className='add-contact p-3'>
           <div className="container">
             <div className="row">
@@ -17,28 +86,36 @@ const EditContact = () => {
               </div>
               <div className='row align-items-center'>
                 <div className='col-md-4'>
-                  <form>
+                  <form onSubmit={submitForm}>
                     <div className="mb-2">
-                      <input type='text' className='form-control' placeholder='Name' />
+                      <input type='text' value={contact.name} name="name" onChange={updateInput} required='true' className='form-control' placeholder='Name' />
                     </div>
                     <div className="mb-2">
-                      <input type='text' className='form-control' placeholder='Photo Url' />
+                      <input type='text' value={contact.photo} name="photo" onChange={updateInput} required='true' className='form-control' placeholder='Photo Url' />
                     </div>
                     <div className="mb-2">
-                      <input type='text' className='form-control' placeholder='Mobile' />
+                      <input type='number'value={contact.mobile} name="mobile" onChange={updateInput} required='true' className='form-control' placeholder='Mobile' />
                     </div>
                     <div className="mb-2">
-                      <input type='text' className='form-control' placeholder='Email' />
+                      <input type='text' value={contact.email} name="email" onChange={updateInput} required='true' className='form-control' placeholder='Email' />
                     </div>
                     <div className="mb-2">
-                      <input type='text' className='form-control' placeholder='Company' />
+                      <input type='text' value={contact.company} name="company" onChange={updateInput} required='true' className='form-control' placeholder='Company' />
                     </div>
                     <div className="mb-2">
-                      <input type='text' className='form-control' placeholder='Title' />
+                      <input type='text' value={contact.title} name="title" onChange={updateInput} required='true' className='form-control' placeholder='Title' />
                     </div>
                     <div className="mb-2">
-                      <select className='form-control'>
+                      <select className='form-control' value={contact.groupId} name="groupId" onChange={updateInput} required='true'>
                         <option value=''>Select a Group</option>
+                        {
+                          groups.length > 0 && 
+                            groups.map(group => {
+                              return (
+                                <option key={group.id} value={group.id}>{group.name}</option>
+                              )
+                            })
+                        }
                       </select>
                     </div>
                     <div className="mb-2">
@@ -48,12 +125,14 @@ const EditContact = () => {
                   </form>
                 </div>
                 <div className="col-md-6">
-                  <img src="https://www.nicepng.com/png/detail/128-1280593_computer-user-icon-img-users.png" alt="user" className='contact-img'/>
+                  <img src={contact.photo} alt="user" className='contact-img'/>
                 </div>
               </div>
             </div>
           </div>
         </section>
+      </React.Fragment> 
+    }
     </React.Fragment>
   )
 }
